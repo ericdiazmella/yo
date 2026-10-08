@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Díaz Mella — Sitio Profesional e Intelectual</title>
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* VARIABLES DE DISEÑO (ESTÉTIKA EDITORIAL) */
+    :root {
+      --bg-color: #FDFBF7;         /* Marfil / Blanco cálido */
+      --bg-alt: #F4F0EA;           /* Tono marfil ligeramente más oscuro para tarjetas */
+      --text-main: #1A1A1A;        /* Negro carbón */
+      --text-muted: #595959;       /* Gris piedra para elementos secundarios */
+      --accent-color: #1A3644;     /* Azul petróleo / Verde profundo */
+      --border-color: #E2DDD5;     /* Líneas de división sutiles */
+      
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* CONTENEDOR GENERAL */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAVEGACIÓN SIMPLE */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+      padding: 20px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .btn-cv-nav {
+      padding: 6px 14px;
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color) !important;
+      border-radius: 4px;
+      font-size: 0.85rem !important;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cv-nav:hover {
+      background-color: var(--accent-color);
+      color: #FFF !important;
+    }
+
+    /* SECCIONES Y ENCABEZADOS */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+
+    p strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* 1. HERO */
+    .hero {
+      padding: 110px 0 90px 0;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .hero-lead {
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      max-width: 780px;
+      margin-bottom: 36px;
+      font-family: var(--font-serif);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: #FFF;
+    }
+
+    .btn-primary:hover {
+      background-color: #11242E;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background-color: transparent;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-alt);
+    }
+
+    .tags-line {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* NARRATIVA EDITORIAL / PREGUNTAS CLAVE */
+    .narrative-box {
+      background-color: var(--bg-alt);
+      border-left: 3px solid var(--accent-color);
+      padding: 32px;
+      margin: 40px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .narrative-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--accent-color);
+    }
+
+    /* 2. QUÉ HAGO (4 CONCEPTOS) */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card-concept {
+      background: var(--bg-alt);
+      padding: 24px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .card-concept h4 {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    .card-concept p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* 4. TRAYECTORIA (TIMELINE VERTICAL) */
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background-color: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: var(--bg-color);
+      border: 2px solid var(--accent-color);
+    }
+
+    .timeline-item.future .timeline-dot {
+      background-color: var(--accent-color);
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-subtitle {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    /* 5. INVESTIGACIÓN Y PROYECTOS */
+    .project-card {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .project-card:last-child {
+      border-bottom: none;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .project-org {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .project-tags {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    /* 6. MÉTODOS Y HERRAMIENTAS (GRID DE 6) */
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .method-card {
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .method-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .method-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* 7. EXPLORACIONES ACTUALES */
+    .explorations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .exp-item {
+      background: var(--bg-alt);
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .exp-item h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-family: var(--font-sans);
+    }
+
+    /* FOOTER / CONTACTO */
+    footer {
+      padding: 80px 0 40px 0;
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .contact-links a {
+      color: var(--accent-color);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-color);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-lead { font-size: 1.15rem; }
+      .nav-links { display: none; } /* En Google Sites puedes complementar con su nav móvil si lo deseas */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="brand">Eric Díaz Mella</a>
+      <ul class="nav-links">
+        <li><a href="#trayectoria">Trayectoria</a></li>
+        <li><a href="#investigacion">Investigación</a></li>
+        <li><a href="#metodos">Métodos</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#contacto" class="btn-cv-nav">Descargar CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- 1. HERO -->
+    <section class="hero" id="inicio">
+      <span class="section-label">Psicología · Investigación · Políticas Públicas · Comportamiento</span>
+      <h1 class="hero-title">ERIC DÍAZ MELLA</h1>
+      <div class="hero-subtitle">Psicólogo · Investigador · Analista de Políticas Públicas</div>
+      
+      <p class="hero-lead">
+        Trabajo en la intersección entre comportamiento humano, investigación social, políticas públicas y análisis institucional.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#trayectoria" class="btn btn-primary">Explorar trayectoria</a>
+        <a href="#investigacion" class="btn btn-secondary">Ver investigación</a>
+      </div>
+
+      <div class="tags-line">
+        Psicología · Métodos de investigación · Políticas públicas · Derechos humanos · Evaluación · Comportamiento
+      </div>
+    </section>
+
+    <!-- NARRATIVA EDITORIAL DE APERTURA -->
+    <section id="concepto">
+      <div class="narrative-box">
+        <span class="section-label">Eje Conceptual</span>
+        <h3>Personas. Instituciones. Decisiones.</h3>
+        <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-main); margin-bottom: 0;">
+          “Comprender cómo las personas y las instituciones toman decisiones para transformar conocimiento en acción.”
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. QUÉ HAGO -->
+    <section id="que-hago">
+      <span class="section-label">Perspectiva Interdisciplinaria</span>
+      <h2>Una trayectoria entre disciplinas</h2>
+      <p>
+        Mi trayectoria profesional se ha desarrollado entre la psicología, la investigación social y las políticas públicas. He trabajado en contextos vinculados con derechos humanos, infancia y adolescencia, grupos vulnerables, migración, evaluación de programas y gestión pública.
+      </p>
+      <p>
+        Mi interés se encuentra particularmente en aquellos problemas que requieren comprender simultáneamente a las personas, las instituciones y el contexto en el que toman decisiones.
+      </p>
+
+      <div class="grid-4">
+        <div class="card-concept">
+          <h4>Personas</h4>
+          <p>Comprender comportamiento, motivaciones y decisiones.</p>
+        </div>
+        <div class="card-concept">
+          <h4>Evidencia</h4>
+          <p>Investigar, medir y evaluar antes de intervenir.</p>
+        </div>
+        <div class="card-concept">
+          <h4>Instituciones</h4>
+          <p>Comprender cómo las organizaciones traducen políticas en acciones.</p>
+        </div>
+        <div class="card-concept">
+          <h4>Transformación</h4>
+          <p>Utilizar conocimiento para mejorar decisiones y políticas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HILO CONDUCTOR -->
+    <section id="hilo-conductor">
+      <span class="section-label">El Hilo Conductor</span>
+      <h2>Una pregunta que atraviesa mi trayectoria</h2>
+      <p style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--accent-color);">
+        ¿Cómo toman decisiones las personas y las instituciones, y cómo podemos utilizar conocimiento sistemático para comprender y mejorar esas decisiones?
+      </p>
+      <p>
+        Esta pregunta no pertenece exclusivamente a una disciplina:
+      </p>
+      <ul style="list-style: none; padding-left: 0; line-height: 2;">
+        <li>• La <strong>psicología</strong> permite aproximarse al comportamiento humano.</li>
+        <li>• Los <strong>métodos de investigación</strong> permiten producir evidencia.</li>
+        <li>• Las <strong>políticas públicas</strong> permiten comprender decisiones colectivas e institucionales.</li>
+        <li>• La <strong>economía conductual</strong> aporta herramientas para comprender y modificar comportamientos.</li>
+        <li>• La <strong>ciencia de datos y la IA</strong> abren nuevas posibilidades para analizar sistemas complejos de decisión.</li>
+      </ul>
+    </section>
+
+    <!-- 4. TRAYECTORIA -->
+    <section id="trayectoria">
+      <span class="section-label">Recorrido Profesional</span>
+      <h2>Trayectoria</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Psicología</h3>
+          <div class="timeline-subtitle">Formación inicial</div>
+          <p>Comprensión del comportamiento humano, procesos psicológicos y relaciones entre individuo y contexto.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Investigación Social</h3>
+          <div class="timeline-subtitle">Métodos para comprender fenómenos complejos</div>
+          <p>Desarrollo de herramientas de investigación cuantitativa y cualitativa.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Gobierno y Políticas Públicas</h3>
+          <div class="timeline-subtitle">De la comprensión a la intervención</div>
+          <p>Formación y experiencia en diseño, implementación, seguimiento y evaluación de políticas.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Derechos Humanos</h3>
+          <div class="timeline-subtitle">La política pública como garantía de derechos</div>
+          <p>Trabajo vinculado con derechos humanos, grupos vulnerables, infancia, adolescencia y migración.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Evaluación</h3>
+          <div class="timeline-subtitle">Convertir políticas en evidencia</div>
+          <p>Diseño de indicadores, sistemas de monitoreo y herramientas para evaluar implementación y resultados.</p>
+        </div>
+
+        <div class="timeline-item future">
+          <div class="timeline-dot"></div>
+          <h3 class="timeline-title">Comportamiento y Decisión</h3>
+          <div class="timeline-subtitle">El siguiente territorio (En desarrollo)</div>
+          <p>Economía conductual, ciencia de datos, inteligencia artificial y toma de decisiones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INVESTIGACIÓN -->
+    <section id="investigacion">
+      <span class="section-label">Proyectos Aplicados</span>
+      <h2>Investigación</h2>
+
+      <div class="project-card">
+        <h3 class="project-title">Protección de derechos de niños, niñas y adolescentes migrantes</h3>
+        <div class="project-org">EUROsociAL+ · México</div>
+        <p>Desarrollo de un sistema de indicadores para evaluar la implementación de la Ruta de Protección Integral de Derechos de Niñas, Niños y Adolescentes en Situación de Migración.</p>
+        <div class="project-tags">Investigación · Indicadores · Evaluación · Derechos Humanos</div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Evaluación de políticas contra la discriminación</h3>
+        <div class="project-org">COPRED · Ciudad de México</div>
+        <p>Actualización de metodología para el monitoreo y evaluación del Programa para Prevenir y Eliminar la Discriminación.</p>
+        <div class="project-tags">Evaluación · Políticas Públicas · Indicadores · Gestión</div>
+      </div>
+
+      <div class="project-card">
+        <h3 class="project-title">Investigación y derechos humanos</h3>
+        <div class="project-org">Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos (ACNUDH)</div>
+        <p>Colaboración técnica en programas estatales de derechos humanos, construcción de indicadores y articulación entre sociedad civil e instituciones públicas.</p>
+        <div class="project-tags">Derechos Humanos · Indicadores · Articulación Institucional</div>
+      </div>
+    </section>
+
+    <!-- 6. MÉTODOS -->
+    <section id="metodos">
+      <span class="section-label">Caja de Herramientas</span>
+      <h2>Herramientas para comprender problemas complejos</h2>
+
+      <div class="grid-6">
+        <div class="method-card">
+          <h4>Investigación cualitativa</h4>
+          <p>Entrevistas · Análisis de actores · Interpretación contextual</p>
+        </div>
+        <div class="method-card">
+          <h4>Investigación cuantitativa</h4>
+          <p>Indicadores · Análisis de datos · Medición</p>
+        </div>
+        <div class="method-card">
+          <h4>Evaluación</h4>
+          <p>Monitoreo · Resultados · Implementación</p>
+        </div>
+        <div class="method-card">
+          <h4>Políticas públicas</h4>
+          <p>Diseño · Gestión · Análisis institucional</p>
+        </div>
+        <div class="method-card">
+          <h4>Comportamiento</h4>
+          <p>Psicología · Economía conductual · Toma de decisiones</p>
+        </div>
+        <div class="method-card">
+          <h4>Datos e IA</h4>
+          <p>Ciencia de datos · Automatización · Inteligencia artificial</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 32px; font-style: italic; color: var(--text-muted);">
+        “No considero estas herramientas como compartimentos separados. Me interesa especialmente lo que ocurre cuando pueden combinarse para responder una misma pregunta.”
+      </p>
+    </section>
+
+    <!-- 7. PROYECTOS ACTUALES Y DOCENCIA -->
+    <section id="proyectos-y-docencia">
+      <span class="section-label">Enfoque Futuro & Docencia</span>
+      <h2>Exploraciones actuales</h2>
+
+      <div class="explorations-grid">
+        <div class="exp-item">
+          <h4>🧠 Comportamiento y toma de decisiones</h4>
+          <p style="font-size: 0.88rem;">Cómo las personas deciden bajo restricciones de información, tiempo y contexto.</p>
+        </div>
+        <div class="exp-item">
+          <h4>🤖 Inteligencia artificial</h4>
+          <p style="font-size: 0.88rem;">Nuevas formas de interacción entre IA, comportamiento humano y producción de conocimiento.</p>
+        </div>
+        <div class="exp-item">
+          <h4>📊 Ciencia de datos</h4>
+          <p style="font-size: 0.88rem;">Incorporar herramientas computacionales para analizar problemas sociales y apoyar decisiones.</p>
+        </div>
+        <div class="exp-item">
+          <h4>🏛️ Políticas públicas</h4>
+          <p style="font-size: 0.88rem;">Cómo las instituciones convierten evidencia, normas y decisiones políticas en acciones concretas.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <span class="section-label">Docencia</span>
+        <h3>Trabajar con conocimiento</h3>
+        <p>
+          La docencia ha sido otra forma de trabajar con conocimiento: no solamente transmitirlo, sino organizarlo, cuestionarlo y hacerlo comprensible para otros.
+        </p>
+        <p><strong>Universidad Santo Tomás</strong> — Asignaturas y cursos de especialización en investigación y comportamiento.</p>
+      </div>
+    </section>
+
+    <!-- 9. SOBRE MÍ -->
+    <section id="sobre-mi">
+      <span class="section-label">Perfil</span>
+      <h2>Sobre mí</h2>
+      <p>
+        Soy psicólogo y he desarrollado mi trayectoria profesional en espacios donde confluyen investigación, comportamiento humano y políticas públicas.
+      </p>
+      <p>
+        Mi formación posterior en Gobierno y Asuntos Públicos y en Métodos para la Investigación Social amplió mi perspectiva desde el individuo hacia las instituciones y los sistemas sociales.
+      </p>
+      <p>
+        Esa combinación ha orientado mi trabajo hacia la investigación aplicada, la evaluación, el análisis de políticas y la comprensión de problemas públicos complejos. Actualmente me interesa profundizar en la relación entre comportamiento, datos, inteligencia artificial y toma de decisiones.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- 10. CONTACTO / FOOTER -->
+  <footer id="contacto">
+    <div class="container">
+      <span class="section-label">Contacto</span>
+      <h2>Conversemos</h2>
+      <p style="max-width: 600px;">
+        Si quieres conversar sobre investigación, políticas públicas, comportamiento, evaluación o proyectos interdisciplenarios, puedes contactarme directamente.
+      </p>
+      
+      <div class="contact-links">
+        <a href="mailto:tu-correo@ejemplo.com">Correo Electrónico</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="#">Descargar Curriculum Vitae (PDF)</a>
+      </div>
+      
+      <p style="margin-top: 60px; font-size: 0.8rem; color: #888;">
+        © Eric Díaz Mella — Posicionamiento e investigación aplicada.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
